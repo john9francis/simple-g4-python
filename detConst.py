@@ -18,6 +18,7 @@ class DetectorConstruction(G4VUserDetectorConstruction):
     # Define materials
     nist_manager = gNistManager.Instance()
     air = nist_manager.FindOrBuildMaterial("G4_AIR")
+    gold = nist_manager.FindOrBuildMaterial("G4_Au")
 
     # Define world
     solidWorld = G4Box("solidWorld", 10, 10, 10)
@@ -26,7 +27,7 @@ class DetectorConstruction(G4VUserDetectorConstruction):
 
     # Define a detector
     solidDet = G4Box("solidDet", 1, 1, 1)
-    logicDet = G4LogicalVolume(solidDet, air, "logicDet")
+    logicDet = G4LogicalVolume(solidDet, gold, "logicDet")
     G4PVPlacement(None, G4ThreeVector(0,0,0), logicDet, "physDet", logicWorld, False, 0, False)
 
     return physWorld
