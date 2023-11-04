@@ -1,1 +1,1 @@
-docker run -it geant4-python
+docker run -it geant4-speck
