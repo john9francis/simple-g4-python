@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM spack/ubuntu-bionic:v0.20.3
 
 # We will start by installing spack using curl,
 # Then downloading geant4 with spack.
@@ -6,9 +6,11 @@ FROM ubuntu:20.04
 # Update the package list and install required dependencies
 RUN apt-get update && apt-get install -y \
     git \
-    python3 \
-    tar \
-    curl
+    python3
+
+ENV PATH=/opt/spack/bin:$PATH
+
+WORKDIR /opt
 
 ENTRYPOINT [ "/bin/bash" ]
 
