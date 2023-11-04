@@ -1,14 +1,14 @@
+# start from the spack image, so spack is installed
 FROM spack/ubuntu-bionic:v0.20.3
 
-# We will start by installing spack using curl,
-# Then downloading geant4 with spack.
-
-# Update the package list and install required dependencies
+# install required dependencies
 RUN apt-get update && apt-get install -y \
     git \
     python3
 
 ENV PATH=/opt/spack/bin:$PATH
+
+RUN spack install geant4
 
 WORKDIR /opt
 
