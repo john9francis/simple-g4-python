@@ -1,1 +1,1 @@
-docker run -it geant4-speck
+docker run -it geant4-spack
